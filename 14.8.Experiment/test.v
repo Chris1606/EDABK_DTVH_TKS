@@ -20,7 +20,7 @@ module adder #(parameter DATA_WIDTH = 8)(
     output wire                      c_out 
 ); 
 
-    wire [DATA_WIDTH - 1 : 0]wire_c_out; 
+    wire [DATA_WIDTH - 1 : 0] wire_c_out; 
 
     full_adder fa [DATA_WIDTH - 1 : 0](
         .a(a), 
@@ -29,7 +29,7 @@ module adder #(parameter DATA_WIDTH = 8)(
         .c_out(wire_c_out), 
         .sum(sum)
     );
-    assign c_out <= wire_c_out; 
+    assign c_out <= wire_c_out [DATA_WIDTH - ]; 
 endmodule
 
 module test(
@@ -47,3 +47,4 @@ endmodule
 
 //thực hiện nhân song song và nhân booth 
 //viết code sử dụng các phép toán /, %, +, -, *; 
+
