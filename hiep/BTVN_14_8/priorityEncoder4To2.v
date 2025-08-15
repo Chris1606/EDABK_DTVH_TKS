@@ -1,3 +1,4 @@
+// if else priority encoder
 module priorityEncoder4To2 (
     input [3:0] in,
     output reg [1:0] out
@@ -16,3 +17,6 @@ module priorityEncoder4To2 (
         end
     end
 endmodule
+
+
+
