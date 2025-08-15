@@ -1,0 +1,26 @@
+module arithmetic_ops (
+    input  [7:0] a,
+    input  [7:0] b,
+    output [15:0] mul_result,
+    output [7:0] div_result,
+    output [7:0] mod_result,
+    output [8:0] add_result,
+    output [8:0] sub_result
+);
+
+    // Phép nhân
+    assign mul_result = a * b;
+
+    // Phép chia (giả sử b != 0)
+    assign div_result = a / b;
+
+    // Phép chia lấy dư
+    assign mod_result = a % b;
+
+    // Phép cộng
+    assign add_result = a + b;
+
+    // Phép trừ
+    assign sub_result = a - b;
+
+endmodule
