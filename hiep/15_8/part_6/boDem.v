@@ -4,7 +4,6 @@ module boDem (
     input en,
     output reg [7:0] cnt 
 );
-
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin 
             cnt <= 8'b0; 
@@ -14,5 +13,4 @@ module boDem (
             end
         end
     end
-
 endmodule

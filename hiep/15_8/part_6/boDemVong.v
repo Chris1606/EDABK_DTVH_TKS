@@ -9,7 +9,7 @@ module boDemVong (
             count <= 8'b0000_0001;    
         end
         else if (enable) begin
-            count <= {count[6:0], count[7]}; // Rotate left
+            count <= {count[6:0], count[7]}; 
         end
     end
 endmodule
