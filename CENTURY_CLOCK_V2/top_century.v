@@ -18,6 +18,7 @@ module top_century(
     input wire        down, 
     input wire        up , 
 
+    input wire       choose_clk, // 1Hz tick for seconds
 
     //Display on seven segment led, 
     output wire [6 : 0] led_hex_0, 
@@ -88,38 +89,46 @@ module top_century(
     wire tick_months; //day to month tick
     wire tick_years; // month to year tick
 
-    wire finished; //finish the year
-
-    wire [5 : 0]        object_mode, 
+    wire [5 : 0]        object_mode;
     
 
     //  only use 1HZ for implementation on FPGA 
-    wire clk_1Hz;
+
     
-    //Clock divider to implement 1Hz clock
+
+    wire clk_input; // input clock for the system, can be 0.5Hz or 1Hz based on choose_clk
+
+    wire clk_1Hz; 
+
+    wire clk_05Hz; // 0.5Hz clock for the display
+
+    pulse_0s u_pulse_0s (
+        .clk(clk),
+        .rst_n(rst_n),
+        .enable_pulse_1s(1'b1), // always enable
+        .pulse_1s(clk_05Hz) // 0.5Hz clock
+    );
+
+        //Clock divider to implement 1Hz clock
     pulse_1s u_pulse_1s (
         .clk(clk),
         .rst_n(rst_n),
         .enable_pulse_1s(1'b1), // always enable
-        .clk_1Hz(clk_1Hz)
+        .pulse_1s(clk_1Hz)
     );
+    assign clk_input = choose_clk ? clk_05Hz : clk_1Hz; // Use 0.5Hz or 1Hz based on choose_clk
 
 
-    wire blink_state; 
-    controller u_controller (
+
+    //display mode 
+    display_mode u_display(
         .clk(clk_1Hz), 
         .rst_n(rst_n), 
+        
+        .display_mode(display_mode), 
         .select_button(select_button), 
-        .object_mode(object_mode), 
-        .blink_state(blink_state)
-    ); 
 
-    display u_display(
-        .object_mode(object_mode),
-        .blink_state(blink_state),
-
-        .display_mode(display_mode),
-        .seconds_tens(seconds_tens),
+        .seconds_tens(seconds_tens), 
         .seconds_units(seconds_units),
         .minutes_tens(minutes_tens),
         .minutes_units(minutes_units),
@@ -184,13 +193,12 @@ module top_century(
     // );
 
     // bitwise because FPGA recive press as 0; 
-    wire up_fpga = ~up; 
-    wire down_fpga = ~down; 
+
 
 
     //Seconds mode 
     clock_60s u_clock_60s (
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
         
         .second_mode(object_mode[0]),
@@ -208,7 +216,7 @@ module top_century(
 
     //Minutes mode
     clock_60m u_clock_60m(
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
         
         .minute_mode(object_mode[1]),
@@ -228,7 +236,7 @@ module top_century(
 
     //Hours mode
     clock_24h u_clock_24h(
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
         
         .hour_mode(object_mode[2]),
@@ -264,7 +272,7 @@ module top_century(
 
     //DAy mode
     clock_day u_clock_day (
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
 
         .day_mode(object_mode[3]),   // Assuming bit 3 of object_mode is for day control
@@ -286,7 +294,7 @@ module top_century(
 
     clock_month u_clock_month(
         
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
 
         .month_mode(object_mode[4]),   // Assuming bit 3 of object_mode is for day control
@@ -307,7 +315,7 @@ module top_century(
 
     clock_year u_clock_year(
         
-        .clk(clk_1Hz),
+        .clk(clk_input),
         .rst_n(rst_n),
 
         .year_mode(object_mode[5]),   // Assuming bit 3 of object_mode is for day control
@@ -323,10 +331,6 @@ module top_century(
         .year_tens(year_tens),
         .year_units(year_units),
 
-        .finished(finished)
     );
-
-
-    
 
 endmodule

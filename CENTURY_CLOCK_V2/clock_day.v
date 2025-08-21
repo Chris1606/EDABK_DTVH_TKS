@@ -56,11 +56,11 @@ module clock_day(
                         day_units <= 4'd1;
                     end
                     else if (day_units == 4'd9) begin 
-                        day_units <= 4'd0;
-                        day_tens  <= day_tens + 1;
+                        day_units <= 4'd0;0
+                        day_tens  <= day_tens + 1'b1;
                     end
                     else begin 
-                        day_units <= day_units + 1;
+                        day_units <= day_units + 1'b1;
                     end
                 end
                 else if (~up && down) begin 
@@ -70,10 +70,10 @@ module clock_day(
                     end
                     else if (day_units == 4'd0) begin 
                         day_units <= 4'd9;
-                        day_tens  <= day_tens - 1;
+                        day_tens  <= day_tens - 1'b1;
                     end
                     else begin 
-                        day_units <= day_units - 1;
+                        day_units <= day_units - 1'b1;
                     end
                 end
             end

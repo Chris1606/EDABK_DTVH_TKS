@@ -13,10 +13,8 @@ module display(
     input wire [3:0]        year_hundreds,
     input wire [3:0]        year_tens,
     input wire [3:0]        year_units,
-
     input wire              display_mode,
     input wire [5:0]        object_mode,
-    
     input wire              blink_state,
 
     output reg [6:0]        led_hex_0,

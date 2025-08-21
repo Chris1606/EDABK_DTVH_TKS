@@ -51,10 +51,10 @@ module clock_month(
                     end
                     else if (month_units == 4'd9) begin 
                         month_units <= 4'd0;
-                        month_tens  <= month_tens + 1;
+                        month_tens  <= month_tens + 1'b1;
                     end
                     else begin 
-                        month_units <= month_units + 1;
+                        month_units <= month_units + 1'b1;
                     end
                 end
                 else if (~up && down) begin 
@@ -64,10 +64,10 @@ module clock_month(
                     end
                     else if (month_units == 4'd0) begin 
                         month_units <= 4'd9;
-                        month_tens  <= month_tens - 1;
+                        month_tens  <= month_tens - 1'b1;
                     end
                     else begin 
-                        month_units <= month_units - 1;
+                        month_units <= month_units - 1'b1;
                     end
                 end
             end

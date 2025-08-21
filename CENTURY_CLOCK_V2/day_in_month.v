@@ -21,7 +21,7 @@ module day_in_month (
     localparam JUN = 8'd6;
     localparam JUL = 8'd7;
     localparam AUG = 8'd8;
-    localparam SEP = 8'd9;
+    localparam SEP = 8'd9; 
     localparam OCT = 8'd10;
     localparam NOV = 8'd11;
     localparam DEC = 8'd12;
