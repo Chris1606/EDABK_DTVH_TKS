@@ -27,20 +27,38 @@ module day_in_month (
     localparam DEC = 8'd12;
     
     reg [7:0] month;
-    reg [11:0] year;
+    // Biến để xác định năm nhuận
     reg       leap_year;
+    reg [7:0] year_thousands_hundreds;
+    reg [7:0] year_tens_units;
 
     always @(*) begin
         // Tính tháng và năm từ BCD
-        month = month_tens * 4'd10 + month_units;
-        year  = 12'd2000 + year_tens * 4'd10 + year_units;
+        month = (month_tens << 3) + (month_tens << 1) + month_units;
+        
+        year_thousands_hundreds = (year_thousands << 3) + (year_thousands << 1) + year_hundreds;
 
-        // Xác định năm nhuận (chia hết cho 4, không chia hết cho 100 trừ khi chia hết cho 400)
-        if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)))
-            leap_year = 1;
-        else
-            leap_year = 0;
+        year_tens_units = (year_tens << 3) + (year_tens << 1) + year_units;
 
+
+           if (year_tens == 4'd0 && year_units == 4'd0) begin 
+                if (year_thousands_hundreds [1 : 0] == 2'b00) begin 
+                    leap_year = 1'b1; 
+                end 
+                else if (year_thousands_hundreds [1 : 0] != 2'b00) begin 
+                    leap_year = 1'b0; 
+                end
+                else 
+                    leap_year = 1'b0; 
+            end 
+
+            else if (year_tens_units [1 : 0] == 2'b00) begin
+                leap_year = 1'b1; 
+            end
+            else begin 
+                leap_year = 1'b0;
+            end 
+           
         // Giá trị mặc định nếu reset
         if (~rst_n) begin
             max_days_tens  = 4'd3; 
@@ -71,5 +89,4 @@ module day_in_month (
             endcase
         end
     end
-
 endmodule

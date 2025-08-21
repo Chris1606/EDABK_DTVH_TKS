@@ -105,34 +105,35 @@ module top_century(
     );
 
 
-    //display mode 
-    display_mode u_display(
+    wire blink_state; 
+    controller u_controller (
         .clk(clk_1Hz), 
         .rst_n(rst_n), 
-        
-        .display_mode(display_mode), 
         .select_button(select_button), 
+        .object_mode(object_mode), 
+        .blink_state(blink_state)
+    ); 
 
-        .seconds_tens(seconds_tens), 
+    display u_display(
+        .object_mode(object_mode),
+        .blink_state(blink_state),
+
+        .display_mode(display_mode),
+        .seconds_tens(seconds_tens),
         .seconds_units(seconds_units),
-  
         .minutes_tens(minutes_tens),
         .minutes_units(minutes_units),
-
         .hours_tens(hours_tens),
         .hours_units(hours_units),
-
         .day_tens(day_tens),
         .day_units(day_units),
-
         .month_tens(month_tens),
         .month_units(month_units),
-
         .year_thousands(year_thousands),
         .year_hundreds(year_hundreds),
         .year_tens(year_tens),
         .year_units(year_units),
-
+  
         .led_hex_0(led_hex_0),
         .led_hex_1(led_hex_1),
         .led_hex_2(led_hex_2),
@@ -140,10 +141,47 @@ module top_century(
         .led_hex_4(led_hex_4),
         .led_hex_5(led_hex_5),
         .led_hex_6(led_hex_6),
-        .led_hex_7(led_hex_7),
-
-        .object_mode(object_mode)
+        .led_hex_7(led_hex_7)
     );
+    //display mode 
+    // display_mode u_display(
+    //     .clk(clk_1Hz), 
+    //     .rst_n(rst_n), 
+        
+    //     .display_mode(display_mode), 
+    //     .select_button(select_button), 
+
+    //     .seconds_tens(seconds_tens), 
+    //     .seconds_units(seconds_units),
+  
+    //     .minutes_tens(minutes_tens),
+    //     .minutes_units(minutes_units),
+
+    //     .hours_tens(hours_tens),
+    //     .hours_units(hours_units),
+
+    //     .day_tens(day_tens),
+    //     .day_units(day_units),
+
+    //     .month_tens(month_tens),
+    //     .month_units(month_units),
+
+    //     .year_thousands(year_thousands),
+    //     .year_hundreds(year_hundreds),
+    //     .year_tens(year_tens),
+    //     .year_units(year_units),
+
+    //     .led_hex_0(led_hex_0),
+    //     .led_hex_1(led_hex_1),
+    //     .led_hex_2(led_hex_2),
+    //     .led_hex_3(led_hex_3),
+    //     .led_hex_4(led_hex_4),
+    //     .led_hex_5(led_hex_5),
+    //     .led_hex_6(led_hex_6),
+    //     .led_hex_7(led_hex_7),
+
+    //     .object_mode(object_mode)
+    // );
 
     // bitwise because FPGA recive press as 0; 
     wire up_fpga = ~up; 
