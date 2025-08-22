@@ -1,30 +1,36 @@
 module display(
-    input wire [3:0]        seconds_tens,
-    input wire [3:0]        seconds_units,
-    input wire [3:0]        minutes_tens,
-    input wire [3:0]        minutes_units,
-    input wire [3:0]        hours_tens,
-    input wire [3:0]        hours_units,
-    input wire [3:0]        day_tens,
-    input wire [3:0]        day_units,
-    input wire [3:0]        month_tens,
-    input wire [3:0]        month_units,
-    input wire [3:0]        year_thousands,
-    input wire [3:0]        year_hundreds,
-    input wire [3:0]        year_tens,
-    input wire [3:0]        year_units,
-    input wire              display_mode,
-    input wire [5:0]        object_mode,
-    input wire              blink_state,
+    input wire [3:0]    seconds_tens,
+    input wire [3:0]    seconds_units,
 
-    output reg [6:0]        led_hex_0,
-    output reg [6:0]        led_hex_1,
-    output reg [6:0]        led_hex_2,
-    output reg [6:0]        led_hex_3,
-    output reg [6:0]        led_hex_4,
-    output reg [6:0]        led_hex_5,
-    output reg [6:0]        led_hex_6,
-    output reg [6:0]        led_hex_7
+    input wire [3:0]    minutes_tens,
+    input wire [3:0]    minutes_units,
+    
+    input wire [3:0]    hours_tens,
+    input wire [3:0]    hours_units,
+    
+    input wire [3:0]    day_tens,
+    input wire [3:0]    day_units,
+    
+    input wire [3:0]    month_tens,
+    input wire [3:0]    month_units,
+    
+    input wire [3:0]    year_thousands,
+    input wire [3:0]    year_hundreds,
+    input wire [3:0]    year_tens,
+    input wire [3:0]    year_units,
+
+    input wire          display_mode,
+    input wire [5:0]    object_mode,
+    input wire          blink_state,
+    
+    output reg [6:0]    led_hex_0,
+    output reg [6:0]    led_hex_1,
+    output reg [6:0]    led_hex_2,
+    output reg [6:0]    led_hex_3,
+    output reg [6:0]    led_hex_4,
+    output reg [6:0]    led_hex_5,
+    output reg [6:0]    led_hex_6,
+    output reg [6:0]    led_hex_7
 );
 
     wire [6:0] seconds_tens_seg;
@@ -68,7 +74,7 @@ module display(
     led_segment u13(.digits(year_tens), .digits_seg(year_tens_seg));
     led_segment u14(.digits(year_units), .digits_seg(year_units_seg));
 
-    always @(*) begin
+    always @(display_mode, object_mode, blink_state) begin
         if (display_mode) begin
             led_hex_0 = (object_mode == 6'b000001 && ~blink_state) ? 7'b1111111 : seconds_units_seg;
             led_hex_1 = (object_mode == 6'b000001 && ~blink_state) ? 7'b1111111 : seconds_tens_seg;

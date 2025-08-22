@@ -89,11 +89,8 @@ module top_century(
     wire tick_months; //day to month tick
     wire tick_years; // month to year tick
 
-    wire [5 : 0]        object_mode;
-    
-
     //  only use 1HZ for implementation on FPGA 
-
+    wire leap; // leap year signal
     
 
     wire clk_input; // input clock for the system, can be 0.5Hz or 1Hz based on choose_clk
@@ -117,32 +114,51 @@ module top_century(
         .pulse_1s(clk_1Hz)
     );
     assign clk_input = choose_clk ? clk_05Hz : clk_1Hz; // Use 0.5Hz or 1Hz based on choose_clk
+    
+    wire [5 : 0]        object_mode;
+    wire blink_state; // State for blinking display
 
+        // bitwise because FPGA recive press as 0; 
+    wire select_button_fpga = ~select_button; 
+    wire up_fpga = ~up; 
+    wire down_fpga = ~down; 
+    // ------------------------------
+    controller u_controller(
+        .clk(clk),
+        .rst_n(rst_n),
+        .select_button(select_button_fpga),
+        .manual_mode(manual_mode),
+        .object_mode(object_mode),
+        .blink_state(blink_state)
+    );
 
+    display u_display(
 
-    //display mode 
-    display_mode u_display(
-        .clk(clk_1Hz), 
-        .rst_n(rst_n), 
-        
-        .display_mode(display_mode), 
-        .select_button(select_button), 
-
-        .seconds_tens(seconds_tens), 
+        .seconds_tens(seconds_tens),
         .seconds_units(seconds_units),
+
         .minutes_tens(minutes_tens),
         .minutes_units(minutes_units),
+        
         .hours_tens(hours_tens),
         .hours_units(hours_units),
+        
         .day_tens(day_tens),
         .day_units(day_units),
+        
         .month_tens(month_tens),
         .month_units(month_units),
+        
         .year_thousands(year_thousands),
         .year_hundreds(year_hundreds),
         .year_tens(year_tens),
         .year_units(year_units),
-  
+
+        .object_mode(object_mode),
+        .blink_state(blink_state),
+        .display_mode(display_mode),
+
+        
         .led_hex_0(led_hex_0),
         .led_hex_1(led_hex_1),
         .led_hex_2(led_hex_2),
@@ -152,13 +168,18 @@ module top_century(
         .led_hex_6(led_hex_6),
         .led_hex_7(led_hex_7)
     );
+
+    
+
     //display mode 
     // display_mode u_display(
-    //     .clk(clk_1Hz), 
+    //     .manual_mode(manual_mode),
+    //     .clk(clk), 
     //     .rst_n(rst_n), 
+    //     // .clk_1Hz(clk_input),
         
     //     .display_mode(display_mode), 
-    //     .select_button(select_button), 
+    //     .select_button(select_button_fpga), 
 
     //     .seconds_tens(seconds_tens), 
     //     .seconds_units(seconds_units),
@@ -190,9 +211,9 @@ module top_century(
     //     .led_hex_7(led_hex_7),
 
     //     .object_mode(object_mode)
-    // );
+    // 
+    //);
 
-    // bitwise because FPGA recive press as 0; 
 
 
 
@@ -267,7 +288,8 @@ module top_century(
         .rst_n(rst_n), 
 
         .max_days_tens(max_days_tens), 
-        .max_days_units(max_days_units)
+        .max_days_units(max_days_units), 
+        .leap(leap)
     );
 
     //DAy mode

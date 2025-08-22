@@ -10,6 +10,7 @@ module clock_24h(
     
     input wire          tick_hours, 
 
+    
     output reg [3 : 0]  hours_tens, 
     output reg [3 : 0]  hours_units,
 

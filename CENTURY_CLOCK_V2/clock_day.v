@@ -14,8 +14,9 @@ module clock_day(
 
     input wire [3:0]    max_days_units, 
 
-    output reg [3 : 0]  day_tens,
-    output reg [3 : 0]  day_units,         
+
+    output reg [3:0]    day_tens, 
+    output reg [3:0]    day_units,
 
     output wire         tick_months
 
@@ -24,21 +25,22 @@ module clock_day(
     wire at_max_day = (day_tens == max_days_tens && day_units == max_days_units );
     assign tick_months = (at_max_day && ~manual_mode && tick_days) ? 1'b1 : 1'b0; 
     
+
+
     
     always @(posedge clk or negedge rst_n) begin 
         if (~rst_n) begin
-            day_tens    <= 4'd0; 
-            day_units   <= 4'd1; 
+            day_tens  <= 4'd0; 
+            day_units <= 4'd1; 
         end  
         else begin 
             // ================= AUTO MODE =================
             if (~manual_mode) begin     
                 if (tick_days) begin
                     if (day_tens == max_days_tens && day_units == max_days_units) begin 
-                        day_tens    <= 4'd0; 
-                        day_units   <= 4'd1;
+                        day_tens  <= 4'd0; 
+                        day_units <= 4'd1;
                     end
-
                     else if (day_units == 4'd9) begin 
                         day_units <= 4'd0; 
                         day_tens  <= day_tens + 1'b1; 
@@ -56,7 +58,7 @@ module clock_day(
                         day_units <= 4'd1;
                     end
                     else if (day_units == 4'd9) begin 
-                        day_units <= 4'd0;0
+                        day_units <= 4'd0;
                         day_tens  <= day_tens + 1'b1;
                     end
                     else begin 
@@ -77,10 +79,12 @@ module clock_day(
                     end
                 end
             end
-            else begin 
-                day_tens <= day_tens; 
-                day_units <= day_units;
+
+            // ================= CHỈNH LẠI NẾU > MAX_DAY =================
+            if ((day_tens*10 + day_units) > (max_days_tens*10 + max_days_units)) begin
+                day_tens  <= max_days_tens;
+                day_units <= max_days_units;
             end
         end
-    end 
+    end
 endmodule
