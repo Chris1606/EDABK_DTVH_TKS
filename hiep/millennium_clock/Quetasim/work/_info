@@ -1,0 +1,276 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/Quetasim
+T_opt
+!s110 1755855522
+V;hgi;][:Pe=k:2[WQP_>K0
+04 3 4 work top fast 0
+=1-ec91616e492b-68a83aa1-316-43a0
+Z2 !s124 OEM100
+Z3 o-quiet -auto_acc_if_foreign -work work +acc
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.1;73
+R1
+T_opt1
+!s110 1755855824
+V`0l2Jo_F]1>gg<Wo]LCAc0
+04 6 4 work tb_top fast 0
+=1-ec91616e492b-68a83bd0-241-3bfc
+R2
+R3
+R4
+n@_opt1
+R5
+vbcd_to_7seg
+Z6 !s110 1755855814
+!i10b 1
+!s100 @MKHmQN9]5TACN1n?iimj3
+IW8<SoZVYc`WO6iODXdB4K3
+R1
+w1755853718
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v
+!i122 63
+L0 5 20
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z9 !s108 1755855814.000000
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v|
+!i113 0
+Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+vbinary_to_bcd2
+R6
+!i10b 1
+!s100 N;HC_G[DVUJ==zl3X7C?^1
+I3]nKT5^2A>0bez@YM@@8A1
+R1
+w1755853707
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v
+!i122 64
+L0 5 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v|
+!i113 0
+R10
+R4
+vbinary_to_bcd4
+Z11 !s110 1755855815
+!i10b 1
+!s100 I6dJnIb9HTJzNUW[Yl_Az2
+I:^3S:QcUoI1agSM17Ud;:2
+R1
+w1755853713
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v
+!i122 65
+L0 5 12
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v|
+!i113 0
+R10
+R4
+vclk_divider
+R6
+!i10b 1
+!s100 ;>Q]4LIA>nZOfTk>KQG3N2
+IGc5OWC7?lJFcE99LBi`821
+R1
+w1755852973
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v
+!i122 58
+L0 4 45
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v|
+!i113 0
+R10
+R4
+vcounter_generic
+R6
+!i10b 1
+!s100 BRam4Yc?=SdJ_9M>=gIRO1
+I;[UGej9E@HF[0_hYAjn7c2
+R1
+w1755853643
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v
+!i122 61
+L0 5 30
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v|
+!i113 0
+R10
+R4
+vdate_counter
+R6
+!i10b 1
+!s100 GB;5KnB`dPM]f6U<a6>?b0
+Iz`K:ScO=kB1b?^EXn_oFd0
+R1
+w1755853659
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v
+!i122 62
+L0 5 50
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v|
+!i113 0
+R10
+R4
+vdebounce
+R6
+!i10b 1
+!s100 DIcIBhBWMSAc@d>68H;6E1
+I]HzYo:h3m>6eVR:HlO94e0
+R1
+w1755854837
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v
+!i122 59
+L0 6 34
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v|
+!i113 0
+R10
+R4
+vedge_detector
+R6
+!i10b 1
+!s100 lS[TI4=Si>OXlS2VCWOCm3
+I8UnC?8kF8hOd?TK<6M>h<1
+R1
+w1755854849
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v
+!i122 60
+L0 6 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v|
+!i113 0
+R10
+R4
+vsevenseg_driver
+R11
+!i10b 1
+!s100 7ACA:^aA?>ol]BdP]IY`i2
+IEjHo2NF2P[E72T1fFO^Fj2
+R1
+w1755855318
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v
+!i122 66
+L0 6 77
+R7
+R8
+r1
+!s85 0
+31
+Z12 !s108 1755855815.000000
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v|
+!i113 0
+R10
+R4
+vtb_top
+R11
+!i10b 1
+!s100 226Kl5KnnP@@<YfcN[DWk1
+Ig`E=BSSI[2I4YR76OORK50
+R1
+w1755853934
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v
+!i122 67
+L0 157 143
+R7
+R8
+r1
+!s85 0
+31
+R12
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v|
+!i113 0
+R10
+R4
+vtop
+R6
+!i10b 1
+!s100 ]U^M]HJ0lm`2139K=UDQb3
+IVLS:lDU4>]=m`7B0KP1?z0
+R1
+w1755855480
+8D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v
+FD:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v
+!i122 57
+L0 9 220
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v|
+!i113 0
+R10
+R4

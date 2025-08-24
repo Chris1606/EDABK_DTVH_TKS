@@ -1,0 +1,15 @@
+{D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/counter_60_tb.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/counter_60_tb.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module counter_60_tb
+
+Top level modules:
+	counter_60_tb
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/counter_60.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/counter_60.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module counter_60
+
+Top level modules:
+	counter_60
+
+} {} {}}

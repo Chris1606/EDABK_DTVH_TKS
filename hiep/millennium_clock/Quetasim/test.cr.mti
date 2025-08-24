@@ -1,0 +1,80 @@
+{D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/clk_divider.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module clk_divider
+
+Top level modules:
+	clk_divider
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/counter_generic.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module counter_generic
+
+Top level modules:
+	counter_generic
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/bcd_to_7seg.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module bcd_to_7seg
+
+Top level modules:
+	bcd_to_7seg
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/04_display/sevenseg_driver.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module sevenseg_driver
+
+Top level modules:
+	sevenseg_driver
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/top.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/02_counters/date_counter.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module date_counter
+
+Top level modules:
+	date_counter
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd2.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module binary_to_bcd2
+
+Top level modules:
+	binary_to_bcd2
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/debounce.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module debounce
+
+Top level modules:
+	debounce
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v} {2 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module tb_top
+-- Compiling module tb_top
+** Warning: D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/sim/tb_top.v(157): (vlog-2275) Existing module 'tb_top' at line 8 will be overwritten.
+
+Top level modules:
+	tb_top
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/01_utilities/edge_detector.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module edge_detector
+
+Top level modules:
+	edge_detector
+
+} {} {}} {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v} {1 {vlog -work work -vopt -stats=none {D:/OneDrive - Hanoi University of Science and Technology/EDABK/Digital design/EDABK_DTVH_TKS/hiep/millennium_clock/src/03_conversion/binary_to_bcd4.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module binary_to_bcd4
+
+Top level modules:
+	binary_to_bcd4
+
+} {} {}}
