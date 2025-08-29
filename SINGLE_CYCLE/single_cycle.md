@@ -96,7 +96,40 @@ All test scenarios are documented in the Google Sheet (assembly code + expected 
   - Test different branch conditions (taken & not taken).  
   - Verify PC updates match simulation.  
 
-👉 Detailed scenarios:  
+- For **Jump (jal / jalr)**:  
+  - Verify that PC is updated with the correct offset/target address.  
+  - Confirm return address (PC+4) is written to the destination register (`rd`).  
+
+- For **U-type (lui / auipc)**:  
+  - Verify `lui` writes the upper immediate directly into the register.  
+  - Verify `auipc` adds the upper immediate to the current PC.  
+
+### How to use Testbench
+[Test RISCV Single Cycle](./tb/test_RISCV_Single_Cycle.sv)
+The testbench interacts directly with the instantiated components inside the **Single-Cycle CPU top module**.  
+Below are the important interfaces and naming conventions used:
+
+- **Register File (RF)**  
+  - Instance name: `Reg_inst`  
+  - Internal memory array: `registers`  
+
+- **Instruction Memory (IMEM)**  
+  - Instance name: `IMEM_inst`  
+  - Internal memory array: `memory`  
+  - Depth: 60 words  
+
+- **Data Memory (DMEM)**  
+  - Instance name: `DMEM_inst`  
+  - Internal memory array: `memory`  
+  - Depth: 256 words  
+
+- **Instruction bus after decode**  
+  - Signal name in top module: `Instruction_out_top`  
+  - This signal carries the fetched instruction from `IMEM_inst` to the other datapath components for execution.  
+
+👉 When writing testbenches, you can directly reference these instance names and internal memories to initialize data (IMEM/DMEM), check register values, and verify outputs after each clock cycle.  
+
+👉 Detailed scenarios: Test 
 [📑 Test Plan & Verification Google Sheet](https://docs.google.com/spreadsheets/d/16yg93v6sQOMSJTBV34Ah0uIhboqDeHKh47NLm_6tLl4/edit?usp=sharing)  
 ![Test Passed Successfully](./img_asset/Simmulation.jpeg)
 
