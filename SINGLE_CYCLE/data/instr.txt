@@ -1,0 +1,46 @@
+addr  instr
+0x00: 0x00500093   // addi x1, x0, 5
+0x04: 0x00308113   // addi x2, x1, 3
+0x08: 0x002081B3   // add  x3, x1, x2
+0x0C: 0x02302023   // sw   x3, 32(x0)
+0x10: 0x00318463   // beq  x3, x3, +8  (tới 0x18)
+0x14: 0x06300213   // addi x4, x0, 99  (SKIP)
+0x18: 0x008002EF   // jal  x5, +8      (tới 0x20)
+0x1C: 0x00100213   // addi x4, x0, 1   (SKIP)
+0x20: 0x00700313   // addi x6, x0, 7
+
+//Test R_type: 
+00a00113 // addi x2, x0, 10
+00a00093 // addi x1, x0, 10
+002081b3 // add  x3, x1, x2
+402081b3 // sub  x3, x1, x2
+0020c1b3 // xor  x3, x1, x2
+
+0020e1b3 // or   x3, x1, x2
+0020f1b3 // and  x3, x1, x2
+002091b3 // sll  x3, x1, x2   (shift-left logical, dùng 5 bit thấp của x2)
+0020d1b3 // srl  x3, x1, x2   (shift-right logical)
+0020a1b3 // slt  x3, x1, x2   (set less than, signed)
+0020b1b3 // sltu x3, x1, x2   (set less than, unsigned)
+4020d1b3 // sra  x3, x1, x2   (shift-right arithmetic)
+
+//Test I math type 
+0x00: 0x00508193   // addi x3, x1, 5
+0x04: 0x0f00c193   // xori x3, x1, 0x0F0
+0x08: 0x0f00e193   // ori  x3, x1, 0x0F0
+0x0c: 0x0f00f193   // andi x3, x1, 0x0F0
+0x10: 0x00309193   // slli x3, x1, 3
+0x14: 0x0030d193   // srli x3, x1, 3
+0x18: 0x4030d193   // srai x3, x1, 3
+0x1c: 0xfff0a193   // slti x3, x1, -1
+0x20: 0x0ff0b193   // sltiu x3, x1, 0x0FF
+0x24: 0x00000093   // addi x1, x0, 0
+
+
+//Test Load type
+0x00: 0x00100503   // lb   x10, 1(x0)
+0x04: 0x00601583   // lh   x11, 6(x0)
+0x08: 0x00802603   // lw   x12, 8(x0)
+0x0C: 0x00304683   // lbu  x13, 3(x0)
+0x10: 0x00405703   // lhu  x14, 4(x0)
+0x14: 0x00000013   // addi x0, x0, 0   (NOP)

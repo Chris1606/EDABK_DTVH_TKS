@@ -1,0 +1,237 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/SIMMULATION
+T_opt
+!s110 1756452444
+V0UhKoDFzTJ[jVVY1;XmH_3
+04 23 4 work test_RISCV_Single_Cycle fast 0
+=1-145afc70261d-68b1565c-b757-5c4e
+o-quiet -auto_acc_if_foreign -work work +acc
+Z0 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+vALU
+Z1 !s110 1756452441
+!i10b 1
+!s100 AA<oh0_3FRMYam6S1RV>?1
+IWK=Q@hbkO;O:3OICWXD`n3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 d/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/sim
+w1756452373
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v
+L0 1
+Z4 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z5 !s108 1756452441.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v|
+!i113 0
+Z6 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
+n@a@l@u
+vbranch_comparator
+R1
+!i10b 1
+!s100 h@9b1;QDU:LPkSB01Y5H30
+I1^lJQL]@OA[EVHZ?HH[XI2
+R2
+R3
+w1756435474
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v|
+!i113 0
+R6
+R0
+vcontrol_unit
+R1
+!i10b 1
+!s100 PInWI@J2zgI6FRbUFQ`h_2
+I^z5;EoDlEIQKSG7j^;4=A1
+R2
+R3
+w1756435891
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v|
+!i113 0
+R6
+R0
+vdata_memory
+R1
+!i10b 1
+!s100 Vg]L]]?W014mm0i=_GZA62
+I>@KIZ;@;X`PcK:AcazDH52
+R2
+R3
+w1756452324
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v|
+!i113 0
+R6
+R0
+vImmediate_gen
+R1
+!i10b 1
+!s100 CCa>I;JS^<kN[CBC@SZn92
+IXHeDRI[z9b_P7N`0f`fgB1
+R2
+R3
+w1756312670
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v|
+!i113 0
+R6
+R0
+n@immediate_gen
+vinstruction_memory
+R1
+!i10b 1
+!s100 oI>24_hj:oM9MVe0gL=[H0
+IS_]fan81IZnf4lKBY2km]3
+R2
+R3
+w1756432484
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v|
+!i113 0
+R6
+R0
+vPC_counter
+Z7 !s110 1756452442
+!i10b 1
+!s100 J<oWAAZh<EYf^=2i`I8b=0
+Im>k6gOcScF2ZfdS7mNoTb1
+R2
+R3
+w1756374869
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v|
+!i113 0
+R6
+R0
+n@p@c_counter
+vregisters_file
+R7
+!i10b 1
+!s100 Qf0U@llP8[Xl5Xl3VP[5Z0
+ID?bOGZ`D8Efbn:6lIJ5QC1
+R2
+R3
+w1756432914
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v
+L0 1
+R4
+r1
+!s85 0
+31
+Z8 !s108 1756452442.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v|
+!i113 0
+R6
+R0
+vRISCV_Single_Cycle
+R7
+!i10b 1
+!s100 8z^_U;?nzh4cYRl<`SD9l2
+IeQz6_Vflo2lJz8=BR@m4@2
+R2
+R3
+w1756451016
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/RISCV_Single_Cycle.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/RISCV_Single_Cycle.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/RISCV_Single_Cycle.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/RISCV_Single_Cycle.v|
+!i113 0
+R6
+R0
+n@r@i@s@c@v_@single_@cycle
+vtest_RISCV_Single_Cycle
+DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
+R1
+!i10b 1
+!s100 5YhaN]2<0`3T?M?c>6`=S0
+Ih=DHeSmV4VfY7o9KEY9g<3
+R2
+!s105 test_RISCV_Single_Cycle_sv_unit
+S1
+R3
+w1756432352
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv|
+!i113 0
+o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
+ntest_@r@i@s@c@v_@single_@cycle

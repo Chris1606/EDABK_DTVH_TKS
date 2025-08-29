@@ -9,9 +9,8 @@ module day_in_month (
     input wire         rst_n,
     
     output reg [3 : 0]  max_days_tens, 
-    output reg [3 : 0]  max_days_units,
+    output reg [3 : 0]  max_days_units
 
-    output wire                leap
 ); 
   
     // Hằng số tháng (1–12)
@@ -33,10 +32,8 @@ module day_in_month (
     reg       leap_year;
     reg [7:0] year_thousands_hundreds;
     reg [7:0] year_tens_units;
-    assign leap = leap_year;
 
-    always @(*) begin
-        // Tính tháng và năm từ BCD
+    always @(month_tens, month_units, year_thousands, year_hundreds, year_tens, year_units, rst_n) begin         // Tính tháng và năm từ BCD
         month = (month_tens << 3) + (month_tens << 1) + month_units;
         
         year_thousands_hundreds = (year_thousands << 3) + (year_thousands << 1) + year_hundreds;

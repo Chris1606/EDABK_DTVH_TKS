@@ -150,7 +150,7 @@ module display_mode(
     // ------------------------------
     // object_mode decode
     // ------------------------------
-    always @(*) begin
+    always @(object_mode) begin
         case (counter)
             SECOND:  object_mode = 6'b000_001;
             MINUTES: object_mode = 6'b000_010;
@@ -165,7 +165,11 @@ module display_mode(
     // ------------------------------
     // LED output mapping
     // ------------------------------
-    always @(*) begin
+    always @(display_mode, object_mode, blink_state, seconds_units_seg, seconds_tens_seg, 
+            minutes_units_seg, minutes_tens_seg, hours_units_seg, hours_tens_seg, year_units_seg, 
+            year_tens_seg, year_hundreds_seg, year_thousands_seg, month_units_seg, month_tens_seg, 
+            day_units_seg, day_tens_seg) 
+        begin
         if (display_mode) begin
             led_hex_0 = (object_mode == 6'b000_001 && ~blink_state) ? 7'b111_1111 : seconds_units_seg;
             led_hex_1 = (object_mode == 6'b000_001 && ~blink_state) ? 7'b111_1111 : seconds_tens_seg;

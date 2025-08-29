@@ -4,7 +4,7 @@ module led_segment(
 );
 
     // Common cathode: 0 = ON, 1 = OFF
-    always @(*) begin
+    always @(digits) begin
         case (digits)
             4'd0: digits_seg = 7'b0000001;
             4'd1: digits_seg = 7'b1001111;

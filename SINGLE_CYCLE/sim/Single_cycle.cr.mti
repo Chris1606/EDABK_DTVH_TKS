@@ -1,0 +1,64 @@
+/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/branch_comparator.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module branch_comparator
+
+Top level modules:
+	branch_comparator
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/data_memory.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module data_memory
+
+Top level modules:
+	data_memory
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/ALU.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/PC_counter.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module PC_counter
+
+Top level modules:
+	PC_counter
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv {1 {vlog -work work -vopt -sv -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/test_RISCV_Single_Cycle.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module test_RISCV_Single_Cycle
+
+Top level modules:
+	test_RISCV_Single_Cycle
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/control_unit.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/register_file.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module registers_file
+
+Top level modules:
+	registers_file
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/instruction_mem.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module instruction_memory
+
+Top level modules:
+	instruction_memory
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/SINGLE_CYCLE/hdl/Immediate_gen.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module Immediate_gen
+
+Top level modules:
+	Immediate_gen
+
+} {} {}}
