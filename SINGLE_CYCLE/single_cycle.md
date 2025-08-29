@@ -20,7 +20,7 @@ The CPU datapath consists of the following main components:
 - **Control Unit** – decodes instructions and generates control signals.  
 - **Immediate Generator & MUXes** – handle immediate values and data routing.  
 
-![Datapath](SINGLE_CYCLE/img_asset/Single_Pipeline_Datapath.png) <!-- optional figure -->
+![Datapath](./img_asset/Single_Pipeline_Datapath.png) <!-- optional figure -->
 
 ---
 
