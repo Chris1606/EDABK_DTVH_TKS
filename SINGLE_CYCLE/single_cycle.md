@@ -98,7 +98,7 @@ All test scenarios are documented in the Google Sheet (assembly code + expected 
 
 👉 Detailed scenarios:  
 [📑 Test Plan & Verification Google Sheet](https://docs.google.com/spreadsheets/d/16yg93v6sQOMSJTBV34Ah0uIhboqDeHKh47NLm_6tLl4/edit?usp=sharing)  
-![Test Passed Successfully](./img_asset/Single_Pipeline_Datapath.png)
+![Test Passed Successfully](./img_asset/Simmulation.jpeg)
 
 ## 7. References
 - David A. Patterson, John L. Hennessy – *Computer Organization and Design RISC-V Edition: The Hardware/Software Interface*.  
