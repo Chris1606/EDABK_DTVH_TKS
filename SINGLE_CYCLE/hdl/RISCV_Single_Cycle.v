@@ -15,18 +15,23 @@ module RISCV_Single_Cycle(
 
     //Take the ALU result; 
     wire [31 : 0]   ALU_result;
-    wire [31 : 0]   PC; 
+    reg  [31 : 0]    PC; 
     wire [31 : 0]   PC_plus4;
 
     //PC counter section 
-    PC_counter u_pc_counter(
-        .clk(clk), 
-        .rst_n(rst_n), 
-        .ALU_result(ALU_result), 
-        .PC_sel(PC_sel),
-        .PC(PC),
-        .PC_plus4(PC_plus4)
-    ); 
+    assign PC_plus4 = PC + 32'd4; 
+    wire  [31 : 0] PC_next; 
+    assign PC_next =  (PC_sel) ? ALU_result : PC_plus4;
+    
+    always @(posedge clk or negedge rst_n) begin 
+        if (~rst_n) begin 
+            PC <= 0; 
+        end 
+        else begin 
+            PC <= PC_next; 
+        end
+    end 
+
 
 
     //Instruction memory 
@@ -55,25 +60,21 @@ module RISCV_Single_Cycle(
         .DataA(DataA), 
         .DataB(DataB)
     );
-    
-    //Immediate gen
-    // wire [31 : 0]   Immext; 
-    // Immediate_gen u_immediate_gen(
-    //     .Instr(Instruction[31 : 7]), 
-    //     .ImmSel(ImmSel),
-    //     .Immext(Immext)
-    // );
 
-    wire BrEq, BrLt; 
+    reg BrEq, BrLt; 
 
     //branch comparator
-    branch_comparator u_branch_comparator(
-        .BrUn(BrUn), 
-        .DataA(DataA), 
-        .DataB(DataB),
-        .BrEq(BrEq), 
-        .BrLt(BrLt)
-    );
+    always @(BrUn, DataA, DataB) begin
+        if (BrUn == 0) begin
+            // unsigned compare
+            BrEq = ($unsigned(DataA) == $unsigned(DataB));
+            BrLt = ($unsigned(DataA) < $unsigned(DataB));
+        end else begin
+            // signed compare
+            BrEq = ($signed(DataA) == $signed(DataB));
+            BrLt = ($signed(DataA) <  $signed(DataB));
+        end
+    end
 
     //ALU
     ALU u_ALU(
