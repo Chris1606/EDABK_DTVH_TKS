@@ -1,0 +1,99 @@
+/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module forwarding_unit_ALU
+
+Top level modules:
+	forwarding_unit_ALU
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module reg_MEM_WB
+
+Top level modules:
+	reg_MEM_WB
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module branch_comparator
+
+Top level modules:
+	branch_comparator
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module reg_ID_EX
+
+Top level modules:
+	reg_ID_EX
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module registers_file
+
+Top level modules:
+	registers_file
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module hazard_detection
+
+Top level modules:
+	hazard_detection
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module reg_EX_MEM
+
+Top level modules:
+	reg_EX_MEM
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module reg_IF_ID
+
+Top level modules:
+	reg_IF_ID
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module instruction_memory
+
+Top level modules:
+	instruction_memory
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module data_memory
+
+Top level modules:
+	data_memory
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module RISCV_5_Stage_PIPELINE
+
+Top level modules:
+	RISCV_5_Stage_PIPELINE
+
+} {} {}} /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v {1 {vlog -work work -vopt -stats=none /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module forwarding_unit_branch
+
+Top level modules:
+	forwarding_unit_branch
+
+} {} {}}

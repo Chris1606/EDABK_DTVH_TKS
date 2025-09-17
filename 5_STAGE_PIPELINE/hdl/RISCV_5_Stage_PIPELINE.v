@@ -1,0 +1,514 @@
+module RISCV_5_Stage_PIPELINE(
+    // input wire [31 : 0]     Instruction, // immem
+    input wire              clk, 
+    input wire              rst_n
+
+    // output wire [31 : 0]    ImemAddress             
+); 
+    localparam NOP = 32'h00000013;  // RISC-V NOP: addi x0, x0, 0
+    //PC counter
+    wire jump; // from control unit
+    wire branchCmp; // control signal from decode stage 
+    wire [31 : 0] Jump_address; // address from decode stage
+
+    reg [31 : 0] PC; 
+
+    // reg [31 : 0] Jump_address_Q;
+
+    // always @(posedge clk or negedge rst_n) begin 
+    //     if (~rst_n) 
+    //         Jump_address_Q <= 0; 
+    //     else 
+    //         Jump_address_Q <= Jump_address;
+    // end 
+    
+    ///////////////////////////////////////////////
+    ///////////////                ///////////////
+    //////////////  Instruction F ///////////////
+    /////////////                ///////////////
+    ///////////////////////////////////////////
+    wire [31 : 0] PC_plus4; 
+    assign PC_plus4 = PC + 32'd4; 
+    wire PC_src = jump & branchCmp; 
+    wire [31 : 0] next_PC = (PC_src) ? Jump_address : PC_plus4; 
+    
+    wire Stall; // hazard detection 
+
+    always @(posedge clk or negedge rst_n) begin 
+        if (~rst_n) 
+            PC <= 0; 
+        else if (Stall) 
+            PC <= PC; 
+        else    
+            PC <= next_PC; 
+    end
+    // assign ImemAddress = PC; 
+    //Instruction
+    wire [31 : 0]   Instruction_out_top;  
+    instruction_memory IMEM_inst(
+        .A(PC),
+        .RD(Instruction_out_top)
+    );
+    //register IF/ID
+    wire IF_flush; //from control Unit 
+
+
+    wire [31 : 0] PC_D; //PC decode stage 
+    wire [31 : 0] Instruction_D; //Instruction Decode Stage
+
+    reg_IF_ID u_reg_IF_ID(
+        .clk(clk), 
+        .rst_n(rst_n),
+        .IF_flush(IF_flush | (PC_src && (~Stall)) ), 
+        // .IF_flush(IF_flush | (PC_src && (~Stall)) ), 
+        .Stall(Stall), 
+
+        .PC(PC), 
+        .Instruction(Instruction_out_top), 
+
+        .PC_D(PC_D), 
+        .Instruction_D(Instruction_D)
+    ); 
+
+    ///////////////////////////////////////////////
+    ///////////////                ///////////////
+    //////////////  Instruction D ///////////////
+    /////////////                ///////////////
+    ///////////////////////////////////////////
+
+    //control signal 
+    wire [2 : 0] ImmSel; 
+    wire is_JALR; // 1 use Jalr address, 0: use Branch address 
+    wire is_Branch; // use in Branch compartor 
+
+    reg [31 : 0] Immext; 
+    wire [31 : 0] Immext_D = Immext; 
+    
+    localparam I_type = 3'b000; 
+    localparam S_type = 3'b001; 
+    localparam B_type = 3'b010; 
+    localparam J_type = 3'b011; 
+    localparam U_type = 3'b100; 
+
+    always @(Instruction_D, ImmSel) begin 
+        case (ImmSel) 
+            I_type:
+                Immext = {{20{Instruction_D[31]}}, Instruction_D[31 : 20]};  
+            S_type:
+                Immext = {{20{Instruction_D[31]}}, Instruction_D[31 : 25], Instruction_D[11 : 7]};   
+            B_type:
+                Immext = {{20{Instruction_D[31]}}, Instruction_D[7], Instruction_D[30 : 25], Instruction_D[11 : 8], 1'b0};
+            J_type:
+                Immext = {{12{Instruction_D[31]}}, Instruction_D[19 : 12], Instruction_D[20], Instruction_D[30 : 21], 1'b0};
+            U_type:
+                Immext = {Instruction_D[31 : 12], 12'b0};
+            default:  
+                Immext = {{20{Instruction_D[31]}}, Instruction_D[31 : 20]}; 
+        endcase
+    end 
+    wire [31 : 0] WritebackData_result_W;  // MEM/WB.MemDta. Write Back stage  
+ 
+    wire [31 : 0] dataA, dataB; 
+    wire [4 : 0] AddrD_W; // destination register from RD_W 
+    // wire [31 : 0] DataD; // data in for register file take from WB data
+    wire RegWen; 
+    wire RegWen_W; 
+
+    
+    wire [4 : 0] AddrA = Instruction_D[19 : 15];
+    wire [4 : 0] AddrB = Instruction_D[24 : 20];
+    registers_file Reg_inst(
+        .clk(clk), 
+        .rst_n(rst_n), 
+        .data_in(WritebackData_result_W),
+        .AddrA(AddrA),  
+        .AddrB(AddrB),  
+        .AddrD(AddrD_W), 
+        .RegWen(RegWen_W), 
+        .DataA(dataA), 
+        .DataB(dataB)
+    ); 
+    wire [31 : 0] JALR_address; 
+    wire [31 : 0] Branch_address; 
+    
+    //Forwarding Unit Branch 
+    wire RegWen_M; // reg enable of Memory stage 
+    wire WBSel_M;// Mem to reg signal of Memory stage 
+
+    wire [4 : 0] AddrD_M; //EX_MEM stage, address in Memory stage
+    wire [1 : 0] Control_unit1;
+    wire [1 : 0] Control_unit2;
+    wire Forward_JALR; 
+    wire [4 : 0] AddrA_D = Instruction_D[19 : 15];
+    wire [4 : 0] AddrB_D = Instruction_D[24 : 20];
+
+    wire WBSel_E;
+    wire [4 : 0] AddrD_E;
+    wire WBSel_E1;
+    forwarding_unit_branch u_forwarding_unit_branch (
+        .AddrA(AddrA_D),  
+        .AddrB(AddrB_D),
+        .AddrD_M(AddrD_M),
+        .AddrD_WB(AddrD_W),
+        .AddrD_E(AddrD_E),
+
+        .WBSel_E(WBSel_E1), 
+        .is_JALR(is_JALR), 
+        .RegWen_M(RegWen_M), 
+        .RegWen_WB(RegWen_W),
+        .WBSel_M(WBSel_M), 
+        .Forward_JALR(Forward_JALR), 
+
+        .Control_unit1(Control_unit1),
+        .Control_unit2(Control_unit2) 
+    );     
+    
+    wire [31 : 0] ALU_res_M;
+    // reg [31 : 0] Immext_Q; 
+    // always @(posedge clk or negedge rst_n) begin 
+    //     if (~rst_n) Immext_Q <= 0; 
+    //     else    Immext_Q <= Immext;
+    // end  
+    wire [31 : 0] ALU_res_E; 
+    assign Branch_address = PC_D +  Immext; //(Immext << 1) can use for JAL 
+    
+    assign JALR_address = (Forward_JALR) ? ALU_res_E + Immext : dataA + Immext; 
+    // assign JALR_address = (Forward_JALR) ? ALU_res_E + Immext_Q : dataA + Immext_Q; 
+    
+    assign Jump_address = (is_JALR) ? JALR_address : Branch_address; 
+    
+    branch_comparator u_branch_Cmp(
+        .dataA(dataA),
+        .dataB(dataB), 
+        // .BrUn(BrUn), 
+        .is_Branch(is_Branch), 
+        .funct3(Instruction_D[14 : 12]),
+        .Control_unit1(Control_unit1),
+        .Control_unit2(Control_unit2),
+        .ReadData_W(WritebackData_result_W), 
+        .ALUResultM(ALU_res_M), 
+        .branchCmp(branchCmp)
+    ); 
+    //control unit signal will define which one to use in register ID/EX 
+    wire ID_flush;
+    // assign ID_flush = 0;  
+
+    wire MemWriteEn;
+    wire MemReadEn; 
+    wire WBSel; 
+    wire [1 : 0] ASel; 
+    wire [1 :0] BSel; 
+    wire [3 : 0] ALU_SEL;
+
+    //signall will transfer to 
+    // wire ID_flush_D; 
+    wire RegWen_D; 
+    wire MemWriteEn_D; 
+    wire WBSel_D; 
+    wire [1 : 0] ASel_D; 
+    wire [1 : 0] BSel_D; 
+    wire [3 : 0] ALU_SEL_D;
+    wire MemReadEn_D; 
+
+    wire ID_EX_control_unit_select; 
+
+    // assign RegWen_D     = RegWen;
+    // assign MemReadEn_D  = MemReadEn;
+    // assign MemWriteEn_D = MemWriteEn;
+    // assign WBSel_D      = WBSel;
+    // assign ASel_D       = ASel;
+    // assign BSel_D       = BSel;
+    // assign ALU_SEL_D    = ALU_SEL;
+
+    assign MemReadEn_D  = (ID_flush | ID_EX_control_unit_select) ?  1'b0 : MemReadEn; // MEM
+    assign MemWriteEn_D = (ID_flush | ID_EX_control_unit_select) ?  1'b0 : MemWriteEn; // MEM
+    assign WBSel_D      = (ID_flush | ID_EX_control_unit_select) ?  1'b0 : WBSel; // WB
+    assign RegWen_D     = (ID_flush | ID_EX_control_unit_select) ?  1'b0 : RegWen; // WB
+    assign ASel_D       = (ID_flush | ID_EX_control_unit_select) ?  2'd0 : ASel; // EX
+    assign BSel_D       = (ID_flush | ID_EX_control_unit_select) ?  2'd0 : BSel; // EX
+    assign ALU_SEL_D    = (ID_flush | ID_EX_control_unit_select) ?  4'd0 : ALU_SEL; // EX
+
+
+    //Register ID/EX  
+    wire RegWen_E;
+    wire MemWriteEn_E;
+    wire MemReadEn_E;
+    
+    wire [1 : 0] ASel_E;
+    wire [1 : 0] BSel_E;
+    wire [3 : 0] ALU_SEL_E;
+
+    wire [31 : 0] dataA_E;
+    wire [31 : 0] dataB_E;
+    wire [4 : 0] AddrA_E;
+    wire [4 : 0] AddrB_E;
+    wire [31 : 0] Immext_E;
+    wire [31 : 0] PC_E;
+    wire [31 : 0] Instruction_E; 
+    wire [4 : 0] AddrD = Instruction_D[11 : 7];
+    reg_ID_EX u_reg_ID_EX(
+        .clk(clk), 
+        .rst_n(rst_n),
+
+        .dataA(dataA),
+        .dataB(dataB), 
+        .AddrA(Instruction_D[19 : 15]),  
+        .AddrB(Instruction_D[24 : 20]),  
+        .AddrD(AddrD),
+        .Immext_D(Immext_D), 
+        .PC(PC_D),
+        .Instruction_D(Instruction_D), 
+        .ID_flush(ID_flush), 
+
+        //Control 
+        .RegWen_D(RegWen_D), 
+        .MemWriteEn_D(MemWriteEn_D),
+        .MemReadEn_D(MemReadEn_D),
+        .WBSel_D(WBSel_D), 
+        .ASel_D(ASel_D), 
+        .BSel_D(BSel_D), 
+        .ALU_SEL_D(ALU_SEL_D),
+
+        .RegWen_E(RegWen_E),
+        .MemWriteEn_E(MemWriteEn_E),
+        .MemReadEn_E(MemReadEn_E),
+        .WBSel_E(WBSel_E),
+        .ASel_E(ASel_E),
+        .BSel_E(BSel_E),
+        .ALU_SEL_E(ALU_SEL_E),
+        .dataA_E(dataA_E),
+        .dataB_E(dataB_E),
+        .AddrA_E(AddrA_E),
+        .AddrB_E(AddrB_E),
+        .AddrD_E(AddrD_E),
+        .Immext_E(Immext_E),
+        .PC_E(PC_E),
+        .Instruction_E(Instruction_E)
+    );
+    
+    ///////////////////////////////////////////////
+    ///////////////                ///////////////
+    //////////////  Instruction E ///////////////
+    /////////////                ///////////////
+    ///////////////////////////////////////////
+    
+
+    //Mux 3-1 to choose temp source A
+    localparam ID_EX_DATA = 2'b00; 
+    localparam EX_MEM_DATA = 2'b01; 
+    localparam WB_DATA = 2'b10; 
+
+
+
+    wire [1 : 0]    control_temp_srcA_unit;
+    wire [1 : 0] control_temp_srcB_unit;
+    wire [31 : 0]   EX_MEM_data; 
+    wire [31 : 0]   WB_data; 
+
+    forwarding_unit_ALU u_forwarding_unit_ALU (
+        .AddrA_E(AddrA_E),
+        .AddrB_E(AddrB_E),
+        .AddrD_M(AddrD_M), 
+        .AddrD_W(AddrD_W),
+        .RegWen_M(RegWen_M), 
+        .RegWen_W(RegWen_W), 
+        .control_temp_srcA_unit(control_temp_srcA_unit), 
+        .control_temp_srcB_unit(control_temp_srcB_unit)
+    );
+
+    reg [31 : 0]    temp_srcA; 
+
+    always @(*) begin 
+    // always @(control_temp_srcA_unit) begin 
+        temp_srcA = dataA_E; 
+        case (control_temp_srcA_unit)
+            ID_EX_DATA: 
+                temp_srcA = dataA_E; 
+            EX_MEM_DATA: 
+                temp_srcA = ALU_res_M;
+            WB_DATA:   
+                temp_srcA = WritebackData_result_W; 
+        endcase            
+    end 
+
+    //Mux 3-1 to choose temp source B
+    reg [31 : 0]    temp_srcB; 
+
+    always @(*) begin 
+    // always @(control_temp_srcB_unit) begin 
+        temp_srcB = dataB_E; 
+        case(control_temp_srcB_unit) 
+            ID_EX_DATA: 
+                temp_srcB = dataB_E; 
+            EX_MEM_DATA: 
+                temp_srcB = ALU_res_M;
+            WB_DATA:   
+                temp_srcB = WritebackData_result_W;
+        endcase
+    end 
+
+    //Mux 3-1 to choose SrcA 
+    localparam PC_SRC   = 2'b00; 
+    localparam TEMP_A   = 2'b01; 
+    localparam ZERO     = 2'b10; 
+    
+    reg [31 : 0] srcA; 
+    wire [31 : 0] srcA_E = srcA;  
+    // always @(ASel_E, PC_E, temp_srcA) begin 
+    always @(*) begin 
+        case(ASel_E) 
+            PC_SRC:
+                srcA = PC_E;  
+            TEMP_A: 
+                srcA = temp_srcA;
+            ZERO: 
+                srcA = 32'b0; 
+        endcase
+    end 
+    //Mux 3-1 to choose srcB
+    reg [31 : 0] srcB; 
+    wire [31 : 0] srcB_E = srcB;
+
+    localparam IMMEDIATE   = 2'b00; 
+    localparam TEMP_B   = 2'b01; 
+    localparam FOUR     = 2'b10;   
+    
+    // always @(BSel_E, Immext_E, temp_srcB) begin 
+    always @(*) begin    
+        case(BSel_E) 
+            IMMEDIATE:
+                srcB = Immext_E;  
+            TEMP_B: 
+                srcB = temp_srcB;
+            FOUR: 
+                srcB = 32'd4; 
+        endcase
+    end 
+
+    ALU u_ALU(
+        .srcA_E(srcA_E), 
+        .srcB_E(srcB_E),
+        .ALU_SEL_E(ALU_SEL_E),
+        .ALU_res(ALU_res_E)
+    ); 
+    
+    wire EX_flush; 
+    // assign EX_flush = 0; 
+
+    //mux for WB 
+     // Use for this mux only 
+    wire RegWen_E1; // Use for this mux only 
+    assign WBSel_E1 = (EX_flush) ? 1'b0 : WBSel_E; 
+    assign RegWen_E1 = (EX_flush) ? 1'b0 : RegWen_E; 
+    //mux for Memory 
+    wire MemWriteEn_E1; 
+    assign MemWriteEn_E1 = (EX_flush) ? 1'b0 : MemWriteEn_E; 
+    wire MemReadEn_E1; 
+    assign MemReadEn_E1 = (EX_flush) ? 1'b0 : MemReadEn_E;
+    ///////////////////////////////////////////////
+    ///////////////                ///////////////
+    ////////////// Instruction M  ///////////////
+    /////////////                ///////////////
+    ///////////////////////////////////////////
+    
+    wire [31 : 0] temp_srcB_M;
+    wire MemWriteEn_M; 
+    wire MemReadEn_M; 
+    wire [31 : 0] Instruction_M; 
+    reg_EX_MEM u_reg_EX_MEM(
+        .clk(clk), 
+        .rst_n(rst_n), 
+        .Instruction_E(Instruction_E), 
+        .WBSEL_E(WBSel_E1),
+        .RegWen_E(RegWen_E1), 
+        .MemWriteEn_E(MemWriteEn_E1), 
+        .MemReadEn_E(MemReadEn_E1), 
+        .AddrD_E(AddrD_E), 
+        .temp_srcB_E(temp_srcB),
+        .ALU_res_E(ALU_res_E),
+
+        .WBSel_M(WBSel_M),
+        .RegWen_M(RegWen_M),
+        .MemWriteEn_M(MemWriteEn_M),
+        .MemReadEn_M(MemReadEn_M),
+        .ALU_res_M(ALU_res_M),
+        .AddrD_M(AddrD_M),
+        .temp_srcB_M(temp_srcB_M), 
+        .Instruction_M(Instruction_M) 
+    );
+    
+    wire [31 : 0] ReadData_M;
+    data_memory DMEM_inst(
+        .clk(clk), 
+        .funct3(Instruction_M [14 : 12]),
+        .Address(ALU_res_M), 
+        .WD(temp_srcB_M),
+        .MemWriteEn(MemWriteEn_M),
+        .MemReadEn(MemReadEn_M),
+        .RD(ReadData_M)
+    ); 
+
+   
+
+    ///////////////////////////////////////////////
+    ///////////////                ///////////////
+    ////////////// Instruction W  ///////////////
+    /////////////                ///////////////
+    ///////////////////////////////////////////
+    wire [31 : 0] ReadData_W;
+    wire [31 : 0] ALU_res_W;
+    wire WBSel_W;
+
+
+    reg_MEM_WB u_reg_MEM_WB(
+        .clk(clk), 
+        .rst_n(rst_n), 
+        .WBSel_M(WBSel_M), 
+        .RegWen_M(RegWen_M),
+        .ReadData_M(ReadData_M),
+        .ALU_res_M(ALU_res_M), 
+        .AddrD_M(AddrD_M), 
+        .AddrD_W(AddrD_W), 
+        .ReadData_W(ReadData_W),
+        .ALU_res_W(ALU_res_W), 
+        .WBSel_W(WBSel_W),
+        .RegWen_W(RegWen_W)
+    );
+
+    assign WritebackData_result_W = (WBSel_W) ? ALU_res_W : ReadData_W ; 
+
+    hazard_detection u_hazard_detection(
+        .AddrA(Instruction_D[19 : 15]),
+        .AddrB(Instruction_D[24 : 20]),
+        .AddrD_E(AddrD_E),
+        .AddrD_M(AddrD_M),
+
+        .MemReadEn_E(MemReadEn_E),
+        .MemReadEn_M(MemReadEn_M),
+        .is_JALR(is_JALR), 
+        .is_Branch(is_Branch), 
+        .ID_EX_control_unit_select(ID_EX_control_unit_select), 
+        .Stall(Stall)
+    );
+    control_unit u_control_unit(
+        .opcode(Instruction_D [6 : 2]),
+        .funct3(Instruction_D [14 : 12]),
+        .funct7_5(Instruction_D [30]),
+        .is_Branch(is_Branch),
+        .is_Jump(jump),
+        .is_JALR(is_JALR),
+        .ImmSel(ImmSel),
+        .IF_flush(IF_flush),
+        .ID_flush(ID_flush),
+        .EX_flush(EX_flush),
+        .ASel(ASel),
+        .BSel(BSel),
+        .ALUSel(ALU_SEL),
+        .MemWriteEn(MemWriteEn),
+        .MemReadEn(MemReadEn),
+        .RegWen(RegWen),
+        .WBSel(WBSel)
+    );
+
+endmodule 
+

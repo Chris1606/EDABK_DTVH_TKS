@@ -1,0 +1,355 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/sim_Pipeline
+T_opt
+!s110 1757993300
+VehzIF_mEUOB5LHebdU>BA3
+04 27 4 work forwarding_unit_branch_jalr fast 0
+=1-145afc70261d-68c8d954-77619-3b14
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+Z2 OL;O;10.7c;67
+R0
+T_opt1
+!s110 1758105637
+V;[XH:OD1If^9GLA6zUXVL3
+04 19 4 work test_RISCV_Pipeline fast 0
+=34-145afc70261d-68ca9025-79c43-4bc3
+o-quiet -auto_acc_if_foreign -work work +acc
+R1
+n@_opt1
+R2
+vALU
+Z3 !s110 1758103892
+!i10b 1
+!s100 NgC4;>@ZLb`kjX[dVT]mO1
+IgcVFlQ9@aR@`0>^lB`dZE3
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1756952908
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v
+L0 1
+Z5 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z6 !s108 1758103892.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/ALU.v|
+!i113 0
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@a@l@u
+vbranch_comparator
+R3
+!i10b 1
+!s100 laYS6QCmfgl42VnQfXGlK1
+IEX^f<gfciF8_4TYEHkBhL0
+R4
+R0
+w1757739755
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/branch_comparator.v|
+!i113 0
+R7
+R1
+vcontrol_unit
+R3
+!i10b 1
+!s100 nn7@Y70;E77o71I;T[G6X3
+Ia5UfX?4USdJCCXV^f:jIa1
+R4
+R0
+w1758081227
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/control_unit.v|
+!i113 0
+R7
+R1
+vdata_memory
+R3
+!i10b 1
+!s100 ><B2NUH4MYSPeYLe8[9ca2
+IdimnE[Cg2gD6kiUj=KcM=2
+R4
+R0
+w1756992277
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/data_memory.v|
+!i113 0
+R7
+R1
+vforwarding_unit_ALU
+R3
+!i10b 1
+!s100 @]VDgeUWmI68PUG3R_Ck:1
+I87D8B=0oG?J5L]X6QlFTi3
+R4
+R0
+w1758040522
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/forwarding_unit_ALU.v|
+!i113 0
+R7
+R1
+nforwarding_unit_@a@l@u
+vforwarding_unit_branch
+R3
+!i10b 1
+!s100 klOXneY=jPDWKE<Sci^Jz1
+I^`T;4dzWKTXNe>6_J>hka1
+R4
+R0
+w1758018665
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/fowarding_unit_branch.v|
+!i113 0
+R7
+R1
+vhazard_detection
+!s110 1758104167
+!i10b 1
+!s100 TQz`R]2hfJHD9k0aAZal>1
+IJSM[Ih3ChLDj^ih=9@J9>0
+R4
+R0
+w1758104166
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1758104167.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/hazard_detection.v|
+!i113 0
+R7
+R1
+vinstruction_memory
+R3
+!i10b 1
+!s100 ^?l3N52;28VV>?BRPhZdo0
+IYEc<WYW5c5FX^SY9_[hS01
+R4
+R0
+w1756824457
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/instruction_mem.v|
+!i113 0
+R7
+R1
+vreg_EX_MEM
+R3
+!i10b 1
+!s100 [oR;?>n1Y1bGA5GRU=FJS1
+IlimSOGLI1N55]59XRfL3Q3
+R4
+R0
+w1758018817
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_EX_MEM.v|
+!i113 0
+R7
+R1
+nreg_@e@x_@m@e@m
+vreg_ID_EX
+R3
+!i10b 1
+!s100 JD7Q>lIVQ6R=1e3YafzRB2
+IGHMzg`o2FBTL__IK:3XOA3
+R4
+R0
+w1757006149
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_ID_EX.v|
+!i113 0
+R7
+R1
+nreg_@i@d_@e@x
+vreg_IF_ID
+R3
+!i10b 1
+!s100 QRBB6l;JjD0HKC5g3liJA3
+IAL3=od69nZaIB==FPCXQl1
+R4
+R0
+w1758010999
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_IF_ID.v|
+!i113 0
+R7
+R1
+nreg_@i@f_@i@d
+vreg_MEM_WB
+!s110 1758103893
+!i10b 1
+!s100 j:e^n<An4LzPc;jZ<K_0]0
+IPUZoMoB0Q8A?NLLH@XAW_0
+R4
+R0
+w1758018831
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1758103893.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/reg_MEM_WB.v|
+!i113 0
+R7
+R1
+nreg_@m@e@m_@w@b
+vregisters_file
+!s110 1758103906
+!i10b 1
+!s100 oVbkYa9@gSmn<TH78G?<f2
+IO>W[zjlnghl;8f1n0R`nb0
+R4
+R0
+w1758103904
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1758103906.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/registers_file.v|
+!i113 0
+R7
+R1
+vRISCV_5_Stage_PIPELINE
+!s110 1758105471
+!i10b 1
+!s100 4?h[0cf=2iSM5P8h_6;?21
+ISS<]:o<zZE1OeZ7^`8VA<1
+R4
+R0
+w1758105460
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1758105471.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/hdl/RISCV_5_Stage_PIPELINE.v|
+!i113 0
+R7
+R1
+n@r@i@s@c@v_5_@stage_@p@i@p@e@l@i@n@e
+vtest_RISCV_Pipeline
+DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
+!s110 1758105633
+!i10b 1
+!s100 <^2kKoCb7PGHJTj9I6;>T0
+Ik0b6GQ1U1>YdE:zIP7D=J1
+R4
+!s105 test_RISCV_Pipeline_sv_unit
+S1
+R0
+w1758105632
+8/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/sim_Pipeline/src/test_RISCV_Pipeline.sv
+F/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/sim_Pipeline/src/test_RISCV_Pipeline.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1758105633.000000
+!s107 /home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/sim_Pipeline/src/test_RISCV_Pipeline.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/snappys/EDBAK/Thinh/DIGITAL_DESIGN/RISCV/5_STAGE_PIPELINE/sim_Pipeline/src/test_RISCV_Pipeline.sv|
+!i113 0
+o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+ntest_@r@i@s@c@v_@pipeline
